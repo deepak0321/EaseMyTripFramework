@@ -2,8 +2,6 @@ package com.automation.pages.android;
 
 import com.automation.pages.ui.BusSearchPage;
 import com.automation.utils.ConfigReader;
-import io.cucumber.java.en_scouse.An;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

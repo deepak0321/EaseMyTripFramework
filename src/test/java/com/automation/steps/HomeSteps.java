@@ -1,12 +1,9 @@
 package com.automation.steps;
 
-import com.automation.pages.android.AndroidBusSearchPage;
+
 import com.automation.pages.android.AndroidHomePage;
-import com.automation.pages.android.AndroidTrainSearchPage;
 import com.automation.pages.ui.HomePage;
-import com.automation.pages.web.WebBusSearchPage;
 import com.automation.pages.web.WebHomePage;
-import com.automation.pages.web.WebTrainSearchPage;
 import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.security.cert.X509Certificate;
 
 public class WebBusListingPage extends WebBasePage implements BusListingPage {
 

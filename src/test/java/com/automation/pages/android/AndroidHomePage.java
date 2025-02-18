@@ -17,7 +17,8 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
 
     public  void  openApplication(){
-        dontAllowBtn.click();
+        if(dontAllowBtn.isDisplayed())
+          dontAllowBtn.click();
     }
 
     public void clickOnBusTab(){
