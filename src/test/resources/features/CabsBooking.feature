@@ -25,4 +25,4 @@ Feature: Validate Cabs Booking Feature on EaseMyTrip
       | Airport Drop   | chennai central station                   | Chennai International Airport, Terminal 1 | 5 March 2025     | 08:35 pm     | -                | -           | -             | -        | -         |
       | Outstation     | delhi                                     | agra                                      | 22 February 2025 | 10:00 am     | 25 March 2025    | 10:35 pm    | -             | -        | -         |
       | Hourly         | delhi                                     | -                                         | 28 May 2030      | 12:35 pm     | -                | -           | 6 Hr          | -        | -         |
-      | Self Drive     | Paris Roissy CDG-SD              | Paris Roissy CDG-SD              | 21 March 2025-SD | 03:35 pm-SD  | 28 March 2025-SD | 11:35 pm-SD | -             | 25 Years | MAURITIUS |
+      | Self Drive     | Paris Roissy CDG-SD                       | Paris Roissy CDG-SD                       | 21 March 2025-SD | 03:35 pm-SD  | 28 March 2025-SD | 11:35 pm-SD | -             | 25 Years | MAURITIUS |
