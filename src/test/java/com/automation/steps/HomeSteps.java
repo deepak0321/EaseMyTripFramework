@@ -20,6 +20,11 @@ public class HomeSteps {
             homePage = new AndroidHomePage();
     }
 
+    @When("user clicks on cabs tab")
+    public void userClicksOnCabsTab() {
+        homePage.clickOnCabsTab();
+    }
+
 
     @Given("user opens application")
     public void userOpensApplication() {

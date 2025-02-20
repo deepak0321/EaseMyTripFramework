@@ -15,9 +15,16 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"Bus\"]")
     WebElement busTab;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Cabs\"]")
+    WebElement cabsTab;
+
+    public void clickOnCabsTab(){
+        cabsTab.click();
+    }
+
 
     public  void  openApplication(){
-        if(dontAllowBtn.isDisplayed())
+        if(isDisplayed(dontAllowBtn))
           dontAllowBtn.click();
     }
 

@@ -16,10 +16,16 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(xpath = "//a//span[text()='Bus']")
     WebElement busTab;
 
+    @FindBy(xpath = "//a//span[text()='Cabs']")
+    WebElement cabsTab;
+
     public void clickOnBusTab(){
         busTab.click();
     }
 
+    public void clickOnCabsTab(){
+        cabsTab.click();
+    }
 
     public void openApplication() {
         driver.get(ConfigReader.getConfigValue("application.url"));

@@ -13,7 +13,6 @@ public abstract class WebBasePage {
     WebDriverWait wait;
 
 
-
     public WebBasePage() {
 
         driver = DriverManager.getDriver();
@@ -21,12 +20,22 @@ public abstract class WebBasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void pause(long millis){
+    public void pause(long millis) {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public String[] timeSplitter(String time) {
+        String[] timeParts = time.split(" ");
+        String[] hourMinute = timeParts[0].split(":");
+        int minute = Integer.parseInt(hourMinute[1]);
+        String period = timeParts[1];
+        int dividedMinute = minute / 5;
+        return new String[]{hourMinute[0],String.valueOf(dividedMinute),period};
+
     }
 
 }

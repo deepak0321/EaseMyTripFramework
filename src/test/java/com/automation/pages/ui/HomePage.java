@@ -10,4 +10,6 @@ public interface HomePage {
     void ClickOnTrainsTab();
 
     void clickOnBusTab();
+
+    void clickOnCabsTab();
 }
