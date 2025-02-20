@@ -15,9 +15,9 @@ public class CabSearchSteps {
 
     public CabSearchSteps(){
         if(ConfigReader.getConfigValue("application.type").equalsIgnoreCase("Web")){
-            cabSearchPage = new AndroidCabSearchPage();
-        }else
             cabSearchPage = new WebCabSearchPage();
+        }else
+            cabSearchPage = new AndroidCabSearchPage();
     }
 
 
@@ -38,7 +38,8 @@ public class CabSearchSteps {
 
     @And("user enters drop location as {string}")
     public void userEntersDropLocationAs(String toCity) {
-        cabSearchPage.enterDropLocation(toCity);
+        if(!toCity.equals("-"))
+            cabSearchPage.enterDropLocation(toCity);
     }
 
 
@@ -49,28 +50,34 @@ public class CabSearchSteps {
 
     @And("user selects return date {string} and time {string} if applicable")
     public void userSelectsReturnDateAndTimeIfApplicable(String date, String time) {
-        cabSearchPage.selectReturnDateAndTime(date, time);
+        if(!date.equals("-"))
+            cabSearchPage.selectReturnDateAndTime(date, time);
     }
 
     @And("user enters rental duration {string} if applicable")
     public void userEntersRentalDurationIfApplicable(String duration) {
+        if(!duration.equals("-"))
+            cabSearchPage.selectRentalHours(duration);
+
     }
 
     @And("user enters age {string} if applicable")
     public void userEntersAgeIfApplicable(String age) {
-
+        if(!age.equals("-"))
+            cabSearchPage.selectAge(age);
     }
 
     @And("user clicks on cab search button")
     public void userClicksOnCabSearchButton() {
+        cabSearchPage.clickOnSearchBtn();
     }
 
-    @Then("verify user is on cab listing page")
-    public void verifyUserIsOnCabListingPage() {
-    }
+
 
 
     @And("user enters country {string} if applicable")
     public void userEntersCountryIfApplicable(String country) {
+        if(!country.equals("-"))
+            cabSearchPage.selectCountry(country);
     }
 }

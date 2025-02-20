@@ -20,9 +20,9 @@ Feature: Validate Cabs Booking Feature on EaseMyTrip
     Then verify user is on cab listing page
 
     Examples:
-      | Booking Type   | From City     | To City            | Pick-up Date     | Pick-up time | Return Date   | Return Time | Rent Duration | Age | Country |
-      | Airport Pickup | Delhi Airport | Greater Kailash II | 25 February 2025 | 11:35 AM     | -             | -           | -             | -   | -       |
-      | Airport drop   | Delhi Airport | Greater Kailash II | 26 April 2025    | 08:35 AM     | -             | -           | -             | -   | -       |
-      | Outstation     | Delhi         | Agra               | 27 May 2025      | 10:35 AM     | 29 May 2025   | 10:35 AM    | -             | -   | -       |
-      | Hourly         | Delhi         | Delhi              | 28 June 2025     | 12:35 PM     | -             | -           | 6 Hr          | -   | -       |
-      | Self-Drive     | Delhi         | Delhi              | 21 March 2025    | 03:35 PM     | 28 March 2025 | 03:35 PM    | 12 Hr         | 22  | India   |
+      | Booking Type   | From City                                 | To City                                   | Pick-up Date     | Pick-up time | Return Date      | Return Time | Rent Duration | Age      | Country   |
+      | Airport Pickup | Chennai International Airport, Terminal 1 | chennai central station                   | 25 February 2025 | 11:35 am     | -                | -           | -             | -        | -         |
+      | Airport Drop   | chennai central station                   | Chennai International Airport, Terminal 1 | 5 March 2025     | 08:35 pm     | -                | -           | -             | -        | -         |
+      | Outstation     | delhi                                     | agra                                      | 22 February 2025 | 10:00 am     | 25 March 2025    | 10:35 pm    | -             | -        | -         |
+      | Hourly         | delhi                                     | -                                         | 28 May 2030      | 12:35 pm     | -                | -           | 6 Hr          | -        | -         |
+      | Self Drive     | Paris Roissy CDG-SD              | Paris Roissy CDG-SD              | 21 March 2025-SD | 03:35 pm-SD  | 28 March 2025-SD | 11:35 pm-SD | -             | 25 Years | MAURITIUS |

@@ -42,4 +42,16 @@ public class AndroidCabSearchPage extends AndroidBasePage implements CabSearchPa
 
     }
 
+    public void selectRentalHours(String hours) {
+
+    }
+
+    public void selectCountry(String country) {
+
+    }
+
+    public void selectAge(String age) {
+
+    }
+
 }
