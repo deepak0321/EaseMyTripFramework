@@ -11,13 +11,18 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class HomeSteps {
-    HomePage homePage ;
+    HomePage homePage;
 
-    public HomeSteps(){
-        if(ConfigReader.getConfigValue("application.type").equalsIgnoreCase("Web")){
+    public HomeSteps() {
+        if (ConfigReader.getConfigValue("application.type").equalsIgnoreCase("Web")) {
             homePage = new WebHomePage();
-        }else
+        } else
             homePage = new AndroidHomePage();
+    }
+
+    @When("user click on Flight Tab")
+    public void userClickOnFlightTab() {
+        homePage.clickOnFlightTab();
     }
 
     @When("user clicks on cabs tab")

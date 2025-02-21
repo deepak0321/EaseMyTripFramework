@@ -37,17 +37,17 @@ public class AndroidBusSearchPage extends AndroidBasePage implements BusSearchPa
 
         startFrom.click();
         searchBar.sendKeys(ConfigReader.getConfigValue(from));
-        driver.findElement(By.xpath(String.format(CITY_XPATH,ConfigReader.getConfigValue(from)))).click();
+        driver.findElement(By.xpath(String.format(CITY_XPATH, ConfigReader.getConfigValue(from)))).click();
 
         searchBar.sendKeys(ConfigReader.getConfigValue(to));
-        driver.findElement(By.xpath(String.format(CITY_XPATH,ConfigReader.getConfigValue(to)))).click();
+        driver.findElement(By.xpath(String.format(CITY_XPATH, ConfigReader.getConfigValue(to)))).click();
 
         datePicker.click();
         String dateToSelect = dateFormat(ConfigReader.getConfigValue(date));
-        while (!isElementDisplayed(String.format(DATE_XPATH,dateToSelect))){
-            scrollUp();
+        while (!isElementDisplayed(String.format(DATE_XPATH, dateToSelect))) {
+            scrollDown();
         }
-        driver.findElement(By.xpath(String.format(DATE_XPATH,dateToSelect))).click();
+        driver.findElement(By.xpath(String.format(DATE_XPATH, dateToSelect))).click();
 
     }
 

@@ -34,11 +34,11 @@ public class WebBusSearchPage extends WebBasePage implements BusSearchPage {
     @FindBy(xpath = "//input[@id='srcbtn']")
     WebElement searchBtn;
 
-    public boolean isBusSearchPageDisplayed(){
+    public boolean isBusSearchPageDisplayed() {
         return onlineBusTicketsText.isDisplayed();
     }
 
-    public void enterBusDetails(String from,String to,String date){
+    public void enterBusDetails(String from, String to, String date) {
 
         fromCity.sendKeys(ConfigReader.getConfigValue(from));
         pause(1000);
@@ -51,13 +51,13 @@ public class WebBusSearchPage extends WebBasePage implements BusSearchPage {
         datePicker.click();
         String givenDate = ConfigReader.getConfigValue(date);
         String[] dateParts = givenDate.split(" ");
-        while (!datePickerMonth.getText().equalsIgnoreCase(dateParts[1])){
+        while (!datePickerMonth.getText().equalsIgnoreCase(dateParts[1])) {
             nextMonth.click();
         }
-        driver.findElement(By.xpath(String.format(DATE_XPATH,dateParts[0]))).click();
+        driver.findElement(By.xpath(String.format(DATE_XPATH, dateParts[0]))).click();
     }
 
-    public void clickOnSearchBtn(){
+    public void clickOnSearchBtn() {
         searchBtn.click();
     }
 

@@ -16,9 +16,9 @@ public class WebCabListingPage extends WebBasePage implements CabListingPage {
     @FindBy(xpath = "//div[@class='ttl_sec']//span[contains(text(),'Your Transfer')]")
     WebElement yourTransferText;
 
-    public boolean isCabListingPageDisplayed(){
-        if(isDisplayed(yourTransferText))
+    public boolean isCabListingPageDisplayed() {
+        if (isDisplayed(yourTransferText))
             return true;
-        return carTypeText.isDisplayed()&& fuelTypeText.isDisplayed();
+        return carTypeText.isDisplayed() && fuelTypeText.isDisplayed();
     }
 }

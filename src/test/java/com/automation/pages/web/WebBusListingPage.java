@@ -30,7 +30,7 @@ public class WebBusListingPage extends WebBasePage implements BusListingPage {
         driver.findElement(By.xpath(String.format(BOARDING_POINT_XPATH, ConfigReader.getConfigValue(point)))).click();
     }
 
-    public void clickOnContinue(){
+    public void clickOnContinue() {
         continueBtn.click();
     }
 

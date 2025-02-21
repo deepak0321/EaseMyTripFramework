@@ -11,13 +11,13 @@ import org.junit.Assert;
 
 public class BusListingSteps {
 
-   BusListingPage busListingPage;
+    BusListingPage busListingPage;
 
 
-    public BusListingSteps(){
-        if(ConfigReader.getConfigValue("application.type").equalsIgnoreCase("Web")){
+    public BusListingSteps() {
+        if (ConfigReader.getConfigValue("application.type").equalsIgnoreCase("Web")) {
             busListingPage = new WebBusListingPage();
-        }else
+        } else
             busListingPage = new AndroidBusListingPage();
     }
 

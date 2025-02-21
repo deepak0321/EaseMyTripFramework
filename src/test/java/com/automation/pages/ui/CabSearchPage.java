@@ -12,9 +12,9 @@ public interface CabSearchPage {
 
     void enterDropLocation(String dropLocation);
 
-    void selectPickupDateAndTime(String date,String time);
+    void selectPickupDateAndTime(String date, String time);
 
-    void selectReturnDateAndTime(String date,String time);
+    void selectReturnDateAndTime(String date, String time);
 
     void selectRentalHours(String hours);
 

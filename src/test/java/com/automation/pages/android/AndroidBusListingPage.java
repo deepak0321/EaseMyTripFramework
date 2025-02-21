@@ -31,40 +31,40 @@ public class AndroidBusListingPage extends AndroidBasePage implements BusListing
     static boolean isContinueBtnClicked = false;
 
     public void selectPoint(String point) {
-        String POINT_TO_SELECT_XPATH = String.format(POINT_XPATH,ConfigReader.getConfigValue(point));
-        while (!isElementDisplayed(POINT_TO_SELECT_XPATH)){
-            scrollUp();
+        String POINT_TO_SELECT_XPATH = String.format(POINT_XPATH, ConfigReader.getConfigValue(point));
+        while (!isElementDisplayed(POINT_TO_SELECT_XPATH)) {
+            scrollDown();
         }
         driver.findElement(By.xpath(POINT_TO_SELECT_XPATH)).click();
     }
 
-    
+
     public void clickOnContinue() {
-        if(!isContinueBtnClicked){
+        if (!isContinueBtnClicked) {
             continueBtn.click();
             isContinueBtnClicked = true;
         }
     }
 
-    
+
     public void selectFirstAvailableSeat() {
-        if(ConfigReader.getConfigValue("mobile.seat.category").equalsIgnoreCase("upper")){
+        if (ConfigReader.getConfigValue("mobile.seat.category").equalsIgnoreCase("upper")) {
             upperSeatsCategory.click();
         }
         int seatNo = 0;
-        while (!isDisplayed(continueBtn)){
+        while (!isDisplayed(continueBtn)) {
             availableSeats.get(seatNo).click();
             seatNo++;
         }
         clickOnContinue();
     }
 
-    
+
     public void clickOnSelectSeats() {
         firstAvailableBus.click();
     }
 
-    
+
     public boolean isBusListingPageDisplayed() {
         return busesFoundText.isDisplayed();
     }

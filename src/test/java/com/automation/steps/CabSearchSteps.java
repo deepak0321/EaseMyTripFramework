@@ -1,9 +1,8 @@
 package com.automation.steps;
 
-import com.automation.pages.android.AndroidCabSearchPage;
+
 import com.automation.pages.ui.CabSearchPage;
 import com.automation.pages.web.WebCabSearchPage;
-import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,15 +10,7 @@ import org.junit.Assert;
 
 public class CabSearchSteps {
 
-    CabSearchPage cabSearchPage;
-
-    public CabSearchSteps(){
-        if(ConfigReader.getConfigValue("application.type").equalsIgnoreCase("Web")){
-            cabSearchPage = new WebCabSearchPage();
-        }else
-            cabSearchPage = new AndroidCabSearchPage();
-    }
-
+    CabSearchPage cabSearchPage = new WebCabSearchPage();
 
     @Then("verify user is on the cab booking page")
     public void verifyUserIsOnTheCabBookingPage() {
@@ -38,32 +29,32 @@ public class CabSearchSteps {
 
     @And("user enters drop location as {string}")
     public void userEntersDropLocationAs(String toCity) {
-        if(!toCity.equals("-"))
+        if (!toCity.equals("-"))
             cabSearchPage.enterDropLocation(toCity);
     }
 
 
     @And("user selects pick-up date {string} and time {string}")
     public void userSelectsPickUpDateAndTime(String date, String time) {
-        cabSearchPage.selectPickupDateAndTime(date,time);
+        cabSearchPage.selectPickupDateAndTime(date, time);
     }
 
     @And("user selects return date {string} and time {string} if applicable")
     public void userSelectsReturnDateAndTimeIfApplicable(String date, String time) {
-        if(!date.equals("-"))
+        if (!date.equals("-"))
             cabSearchPage.selectReturnDateAndTime(date, time);
     }
 
     @And("user enters rental duration {string} if applicable")
     public void userEntersRentalDurationIfApplicable(String duration) {
-        if(!duration.equals("-"))
+        if (!duration.equals("-"))
             cabSearchPage.selectRentalHours(duration);
 
     }
 
     @And("user enters age {string} if applicable")
     public void userEntersAgeIfApplicable(String age) {
-        if(!age.equals("-"))
+        if (!age.equals("-"))
             cabSearchPage.selectAge(age);
     }
 
@@ -73,11 +64,9 @@ public class CabSearchSteps {
     }
 
 
-
-
     @And("user enters country {string} if applicable")
     public void userEntersCountryIfApplicable(String country) {
-        if(!country.equals("-"))
+        if (!country.equals("-"))
             cabSearchPage.selectCountry(country);
     }
 }

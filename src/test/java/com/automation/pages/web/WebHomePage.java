@@ -19,11 +19,19 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(xpath = "//a//span[text()='Cabs']")
     WebElement cabsTab;
 
-    public void clickOnBusTab(){
+    @FindBy(xpath = "//a/span[text()='Flights']")
+    WebElement flightTab;
+
+
+    public void clickOnFlightTab() {
+        flightTab.click();
+    }
+
+    public void clickOnBusTab() {
         busTab.click();
     }
 
-    public void clickOnCabsTab(){
+    public void clickOnCabsTab() {
         cabsTab.click();
     }
 

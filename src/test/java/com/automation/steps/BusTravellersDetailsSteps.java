@@ -9,12 +9,12 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
 public class BusTravellersDetailsSteps {
-    BusTravellersDetailsPage busTravellersDetailsPage ;
+    BusTravellersDetailsPage busTravellersDetailsPage;
 
-    public BusTravellersDetailsSteps(){
-        if(ConfigReader.getConfigValue("application.type").equalsIgnoreCase("Web")){
+    public BusTravellersDetailsSteps() {
+        if (ConfigReader.getConfigValue("application.type").equalsIgnoreCase("Web")) {
             busTravellersDetailsPage = new WebBusTravellersDetailsPage();
-        }else
+        } else
             busTravellersDetailsPage = new AndroidBusTravellersDetailsPage();
     }
 
@@ -27,6 +27,7 @@ public class BusTravellersDetailsSteps {
     public void userClicksOnContinueBookingButton() {
         busTravellersDetailsPage.clickOnContinueBooking();
     }
+
     @Then("the user selects trip insurance option as {string}")
     public void theUserSelectsTripInsuranceOptionAs(String value) {
         busTravellersDetailsPage.selectTripInsurance(value);

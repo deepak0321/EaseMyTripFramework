@@ -11,7 +11,7 @@ public class AndroidBusTravellersDetailsPage extends AndroidBasePage implements 
     @FindBy(id = "com.easemytrip.android:id/llToolBar")
     WebElement busTravellerDetailsPageToolbar;
 
-    String GENDER_XPATH ="//android.widget.RadioButton[@resource-id=\"com.easemytrip.android:id/rb_%s\"]";
+    String GENDER_XPATH = "//android.widget.RadioButton[@resource-id=\"com.easemytrip.android:id/rb_%s\"]";
 
     @FindBy(id = "com.easemytrip.android:id/input_first_name")
     WebElement firstNameInput;
@@ -40,14 +40,12 @@ public class AndroidBusTravellersDetailsPage extends AndroidBasePage implements 
     WebElement paymentOptionsHeader;
 
 
-
-
     public void selectTripInsurance(String value) {
 
-        while(!isDisplayed(emailInput))
-            scrollUp();
-        String insuranceOption = ConfigReader.getConfigValue(value).equalsIgnoreCase("Yes")?"yes":"no";
-        driver.findElement(By.xpath(String.format(INSURANCE_OPTION_XPATH,insuranceOption))).click();
+        while (!isDisplayed(emailInput))
+            scrollDown();
+        String insuranceOption = ConfigReader.getConfigValue(value).equalsIgnoreCase("Yes") ? "yes" : "no";
+        driver.findElement(By.xpath(String.format(INSURANCE_OPTION_XPATH, insuranceOption))).click();
 
     }
 
@@ -67,15 +65,15 @@ public class AndroidBusTravellersDetailsPage extends AndroidBasePage implements 
 
     public void enterUserDetails(String title, String firstName, String lastName, String age, String mobileNumber) {
 
-        scrollDown();
+        scrollUp();
         String genderValue = ConfigReader.getConfigValue(title).equalsIgnoreCase("Mr") ? "male" : "mrs";
-        driver.findElement(By.xpath(String.format(GENDER_XPATH,genderValue))).click();
+        driver.findElement(By.xpath(String.format(GENDER_XPATH, genderValue))).click();
 
         firstNameInput.sendKeys(ConfigReader.getConfigValue(firstName));
         lastNameInput.sendKeys(ConfigReader.getConfigValue(lastName));
         ageInput.sendKeys(ConfigReader.getConfigValue(age));
-        while (!isDisplayed(promoText)){
-            scrollUp();
+        while (!isDisplayed(promoText)) {
+            scrollDown();
         }
         mobileNumberInput.sendKeys(ConfigReader.getConfigValue(mobileNumber));
 

@@ -1,6 +1,5 @@
 package com.automation.pages.android;
 
-
 import com.automation.utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
@@ -9,23 +8,62 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 
 public abstract class AndroidBasePage {
 
     AppiumDriver driver;
+    WebDriverWait wait;
 
     public AndroidBasePage() {
         driver = (AppiumDriver) DriverManager.getDriver();
         PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
-    public void scrollUp() {
+    public void pause(long milliSec) {
+        try {
+            Thread.sleep(milliSec);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String getFormattedDate(String expectedFormat, String date, String currentDateFormat) {
+        try {
+            SimpleDateFormat currentFormatter = new SimpleDateFormat(currentDateFormat);
+            Date dateObject = currentFormatter.parse(date);
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(dateObject);
+
+            SimpleDateFormat expectedFormatter = new SimpleDateFormat(expectedFormat);
+            return expectedFormatter.format(calendar.getTime());
+        } catch (Exception e) {
+            throw new RuntimeException("Invalid date format " + expectedFormat);
+        }
+    }
+
+    public boolean isDisplayed(String xpath) {
+        try {
+            setImplicitWait(5);
+            return driver.findElement(By.xpath(xpath)).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            setImplicitWait(60);
+        }
+    }
+
+    public void scrollDown() {
         Dimension dimension = driver.manage().window().getSize();
         int width = dimension.getWidth();
         int height = dimension.getHeight();
@@ -38,7 +76,7 @@ public abstract class AndroidBasePage {
         driver.perform(Collections.singletonList(sequence));
     }
 
-    public void scrollDown(){
+    public void scrollUp(){
         Dimension dimension = driver.manage().window().getSize();
         int width = dimension.getWidth();
         int height = dimension.getHeight();
@@ -50,35 +88,28 @@ public abstract class AndroidBasePage {
         sequence.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Collections.singletonList(sequence));
     }
-
-   public void swipe(WebElement element){
-       int elementX = element.getLocation().getX();
-       int elementY = element.getLocation().getY();
-       PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-       Sequence swipeSequence = new Sequence(finger, 0);
-       swipeSequence.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), elementX, elementY));
-       swipeSequence.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-       swipeSequence.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(),elementX/3 , elementY));
-       swipeSequence.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-       driver.perform(Collections.singletonList(swipeSequence));
-   }
-
-    private void setImplicitWait(long seconds){
+    
+    private void setImplicitWait(long seconds) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
     }
 
-    public boolean isElementDisplayed(String XPath){
+    public void waitForElementVisible(WebElement ele) {
+        wait.until(ExpectedConditions.visibilityOf(ele));
+    }
+
+    public boolean isElementDisplayed(String XPath) {
         setImplicitWait(0);
         try {
             driver.findElement(By.xpath(XPath));
             return true;
         } catch (Exception e) {
             return false;
-        }finally {
+        } finally {
             setImplicitWait(10);
         }
 
     }
+
 
     public String dateFormat(String givenDate) {
         SimpleDateFormat inputFormat = new SimpleDateFormat("d MMMM yyyy");
@@ -92,14 +123,14 @@ public abstract class AndroidBasePage {
         return outputFormat.format(date);
     }
 
-    public boolean isDisplayed(WebElement element){
+    public boolean isDisplayed(WebElement element) {
         setImplicitWait(0);
         try {
             element.isDisplayed();
             return true;
         } catch (Exception e) {
             return false;
-        }finally {
+        } finally {
             setImplicitWait(60);
         }
 

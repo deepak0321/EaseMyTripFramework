@@ -40,28 +40,27 @@ public class WebBusTravellersDetailsPage extends WebBasePage implements BusTrave
     @FindBy(xpath = "//div[@class='main-pymnt-bx']")
     WebElement paymentOptions;
 
-    public void selectTripInsurance(String value){
+    public void selectTripInsurance(String value) {
 
         driver.findElement(By.xpath(String.format(TRIP_INSURANCE_XPATH, ConfigReader.getConfigValue(value)))).click();
 
     }
 
-    public void enterEmail(String email){
+    public void enterEmail(String email) {
         emailInput.sendKeys(ConfigReader.getConfigValue(email));
     }
 
-    public void clickOnContinue(){
+    public void clickOnContinue() {
         continueBtn.click();
     }
 
-    public boolean isPaymentOptionsDisplayed(){
+    public boolean isPaymentOptionsDisplayed() {
         wait.until(ExpectedConditions.visibilityOf(paymentOptions));
         return paymentOptions.isDisplayed();
     }
 
 
-
-    public void enterUserDetails(String title,String firstName,String lastName,String age,String mobileNumber){
+    public void enterUserDetails(String title, String firstName, String lastName, String age, String mobileNumber) {
 
         Select select = new Select(titleOptions);
         select.selectByValue(ConfigReader.getConfigValue(title));
@@ -72,14 +71,13 @@ public class WebBusTravellersDetailsPage extends WebBasePage implements BusTrave
         mobileNumberInput.sendKeys(ConfigReader.getConfigValue(mobileNumber));
 
 
-
     }
 
-    public void clickOnContinueBooking(){
+    public void clickOnContinueBooking() {
         continueBookingBtn.click();
     }
 
-    public boolean isBusTravellersDetailsPageDisplayed(){
+    public boolean isBusTravellersDetailsPageDisplayed() {
 
         return emailInput.isDisplayed();
     }

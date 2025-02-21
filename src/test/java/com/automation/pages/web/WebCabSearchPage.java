@@ -3,6 +3,7 @@ package com.automation.pages.web;
 import com.automation.pages.ui.CabSearchPage;
 import com.google.j2objc.annotations.Weak;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -27,7 +28,7 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
 
     String SELECT_LOCATION_XPATH = "//div[@class='auto_sugg_tttl' and contains(text(),'%s')]";
 
-    String SELF_DRIVE_LOCATION_PATH ="//div[@class='auto_sugg_tttl_nw' and contains(text(),'%s')]";
+    String SELF_DRIVE_LOCATION_PATH = "//div[@class='auto_sugg_tttl_nw' and contains(text(),'%s')]";
 
     @FindBy(xpath = "//div[@id='destinationName']")
     WebElement destinationName;
@@ -140,7 +141,7 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
 
     public void enterPickupLocation(String pickUpLocation) {
 
-        if(pickUpLocation.endsWith("SD")){
+        if (pickUpLocation.endsWith("SD")) {
             enterSelfDrivePickupLocation(pickUpLocation);
             return;
         }
@@ -150,16 +151,16 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
         driver.findElement(By.xpath(String.format(SELECT_LOCATION_XPATH, pickUpLocation))).click();
     }
 
-    public void enterSelfDrivePickupLocation(String pickUpLocation){
+    public void enterSelfDrivePickupLocation(String pickUpLocation) {
         String location = pickUpLocation.substring(0, pickUpLocation.length() - 3);
         selfDriveSourceElement.click();
-        selfDriveSourceInput.sendKeys(location);
+        selfDriveSourceInput.sendKeys(location, Keys.ENTER);
         pause(3000);
         driver.findElement(By.xpath(String.format(SELECT_LOCATION_XPATH, location))).click();
     }
 
     public void enterDropLocation(String dropLocation) {
-        if(dropLocation.endsWith("SD")){
+        if (dropLocation.endsWith("SD")) {
             return;
         }
         destinationName.click();
@@ -171,8 +172,8 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
 
     public void selectPickupDateAndTime(String date, String time) {
 
-        if(date.endsWith("SD")){
-            selectSelfDrivePickupDate(date,time);
+        if (date.endsWith("SD")) {
+            selectSelfDrivePickupDate(date, time);
             return;
         }
         datePicker.click();
@@ -190,10 +191,10 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
         doneBtn.getFirst().click();
     }
 
-    public void selectSelfDrivePickupDate(String date,String time){
+    public void selectSelfDrivePickupDate(String date, String time) {
         selfDriveDatePicker.click();
-        String sdDate = date.substring(0,date.length()-3);
-        String sdTime = time.substring(0,time.length()-3);
+        String sdDate = date.substring(0, date.length() - 3);
+        String sdTime = time.substring(0, time.length() - 3);
         String[] dateParts = sdDate.split(" ");
 
         while (!datePickerMonth.getText().equalsIgnoreCase(dateParts[1]) || !datePickerYear.getText().equalsIgnoreCase(dateParts[2])) {
@@ -210,8 +211,8 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
 
     public void selectReturnDateAndTime(String date, String time) {
 
-        if(date.endsWith("SD")){
-            selectSelfDriveReturnDateAndTime(date,time);
+        if (date.endsWith("SD")) {
+            selectSelfDriveReturnDateAndTime(date, time);
             return;
         }
 
@@ -234,10 +235,10 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
 
     }
 
-    public void selectSelfDriveReturnDateAndTime(String date,String time){
+    public void selectSelfDriveReturnDateAndTime(String date, String time) {
         sdReturnDatePicker.click();
-        String sdDate = date.substring(0,date.length()-3);
-        String sdTime = time.substring(0,time.length()-3);
+        String sdDate = date.substring(0, date.length() - 3);
+        String sdTime = time.substring(0, time.length() - 3);
         String[] dateParts = sdDate.split(" ");
 
         while (!datePickerMonth.getText().equalsIgnoreCase(dateParts[1]) || !datePickerYear.getText().equalsIgnoreCase(dateParts[2])) {
@@ -270,7 +271,7 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
 
 
     public void clickOnSearchBtn() {
-        if(sdSearchBtn.isDisplayed()){
+        if (sdSearchBtn.isDisplayed()) {
             sdSearchBtn.click();
             return;
         }
