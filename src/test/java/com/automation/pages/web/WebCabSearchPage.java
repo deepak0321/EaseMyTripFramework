@@ -154,7 +154,7 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
     public void enterSelfDrivePickupLocation(String pickUpLocation) {
         String location = pickUpLocation.substring(0, pickUpLocation.length() - 3);
         selfDriveSourceElement.click();
-        selfDriveSourceInput.sendKeys(location, Keys.ENTER);
+        selfDriveSourceInput.sendKeys(location,Keys.BACK_SPACE);
         pause(3000);
         driver.findElement(By.xpath(String.format(SELECT_LOCATION_XPATH, location))).click();
     }

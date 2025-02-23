@@ -24,4 +24,12 @@ public class ConfigReader {
         props.setProperty(key, value);
     }
 
+    public static Object getObject(String key) {
+        return props.get(key);
+    }
+
+    public static void setObject(String key, Object value) {
+        props.put(key, value);
+    }
+
 }

@@ -32,7 +32,7 @@ public class DriverManager {
             capabilities.setCapability("appActivity", ConfigReader.getConfigValue("app.activity"));
             driver = new AndroidDriver(capabilities);
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 
 
     }

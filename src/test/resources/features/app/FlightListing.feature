@@ -1,3 +1,4 @@
+@Android @Web
 Feature: Validate Flight Listing Functionality
 
   Background:

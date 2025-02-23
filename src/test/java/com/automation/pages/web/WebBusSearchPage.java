@@ -41,11 +41,11 @@ public class WebBusSearchPage extends WebBasePage implements BusSearchPage {
     public void enterBusDetails(String from, String to, String date) {
 
         fromCity.sendKeys(ConfigReader.getConfigValue(from));
-        pause(1000);
+        pause(2000);
         selectCity.click();
 
         toCity.sendKeys(ConfigReader.getConfigValue(to));
-        pause(1000);
+        pause(2000);
         selectCity.click();
 
         datePicker.click();
