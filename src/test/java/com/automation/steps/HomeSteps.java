@@ -20,6 +20,11 @@ public class HomeSteps {
             homePage = new AndroidHomePage();
     }
 
+    @When("user clicks on gift card")
+    public void userClicksOnGiftCard() {
+        homePage.clickOnGiftCardTab();
+    }
+
     @When("user click on Flight Tab")
     public void userClickOnFlightTab() {
         homePage.clickOnFlightTab();

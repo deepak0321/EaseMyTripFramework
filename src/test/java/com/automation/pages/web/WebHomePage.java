@@ -22,9 +22,20 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(xpath = "//a/span[text()='Flights']")
     WebElement flightTab;
 
+    @FindBy(xpath = "//a//span[text()='Gift Card']")
+    WebElement giftCardOption;
+
+    @FindBy(xpath = "//a//span[text()='More']")
+    WebElement moreTab;
+
 
     public void clickOnFlightTab() {
         flightTab.click();
+    }
+
+    public void clickOnGiftCardTab() {
+        clickOnMoreTab();
+        clickOnGiftCard();
     }
 
     public void clickOnBusTab() {
@@ -45,5 +56,13 @@ public class WebHomePage extends WebBasePage implements HomePage {
 
     public void ClickOnTrainsTab() {
         trainsTab.click();
+    }
+
+    public void clickOnMoreTab(){
+        moreTab.click();
+    }
+
+    public void clickOnGiftCard(){
+        giftCardOption.click();
     }
 }

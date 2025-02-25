@@ -17,6 +17,8 @@ import java.time.Duration;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public abstract class AndroidBasePage {
 
@@ -54,7 +56,7 @@ public abstract class AndroidBasePage {
 
     public boolean isDisplayed(String xpath) {
         try {
-            setImplicitWait(5);
+            setImplicitWait(0);
             return driver.findElement(By.xpath(xpath)).isDisplayed();
         } catch (Exception e) {
             return false;
@@ -109,7 +111,6 @@ public abstract class AndroidBasePage {
         }
 
     }
-
 
     public String dateFormat(String givenDate) {
         SimpleDateFormat inputFormat = new SimpleDateFormat("d MMMM yyyy");

@@ -12,6 +12,9 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"Trains\"]")
     WebElement trainsTab;
 
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Gift Card\"]")
+    WebElement giftCardsTab;
+
     @FindBy(xpath = "//android.widget.TextView[@text=\"Bus\"]")
     WebElement busTab;
 
@@ -24,6 +27,10 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
     public void clickOnFlightTab() {
         flightsTab.click();
+    }
+
+    public void clickOnGiftCardTab(){
+        giftCardsTab.click();
     }
 
     public void clickOnCabsTab() {
