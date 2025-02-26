@@ -125,7 +125,7 @@ public abstract class AndroidBasePage {
     }
 
     public boolean isDisplayed(WebElement element) {
-        setImplicitWait(0);
+        setImplicitWait(5);
         try {
             element.isDisplayed();
             return true;

@@ -61,9 +61,14 @@ public class AndroidFlightSearchPage extends AndroidBasePage implements FlightSe
     }
 
     public void enterDate(String date) {
-        if(!date.endsWith("-R"))
-             departureDateElement.click();
-        String expDate = getFormattedDate("dd MMM yyyy", date.substring(0,date.length()-2), "dd/MM/yyyy");
+        String expDate;
+        if(!date.endsWith("-R")){
+            departureDateElement.click();
+            expDate = getFormattedDate("dd MMM yyyy", date, "dd/MM/yyyy");
+        }
+        else{
+            expDate = getFormattedDate("dd MMM yyyy", date.substring(0,date.length()-2), "dd/MM/yyyy");
+        }
         String expDateXpath = String.format(XPATH_DATE_VALUE, expDate);
 
         while (!isDisplayed(expDateXpath)) {

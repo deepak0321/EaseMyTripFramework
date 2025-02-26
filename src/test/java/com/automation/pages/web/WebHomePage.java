@@ -65,4 +65,6 @@ public class WebHomePage extends WebBasePage implements HomePage {
     public void clickOnGiftCard(){
         giftCardOption.click();
     }
+
+
 }

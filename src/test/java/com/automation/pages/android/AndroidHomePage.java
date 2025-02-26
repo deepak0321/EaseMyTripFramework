@@ -6,8 +6,17 @@ import org.openqa.selenium.support.FindBy;
 
 public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
+    @FindBy(id = "com.google.android.gms:id/cancel")
+    WebElement googlePopupCloseBtn;
+
+    @FindBy(id = "com.easemytrip.android:id/iv_close")
+    WebElement loginPopupClosBtn;
+
     @FindBy(id = "com.android.permissioncontroller:id/permission_deny_button")
     WebElement dontAllowBtn;
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Metro\"]")
+    WebElement metroTab;
 
     @FindBy(xpath = "//android.widget.TextView[@text=\"Trains\"]")
     WebElement trainsTab;
@@ -39,7 +48,10 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
 
     public void openApplication() {
+
+        googlePopupCloseBtn.click();
         dontAllowBtn.click();
+        loginPopupClosBtn.click();
     }
 
     public void clickOnBusTab() {
@@ -53,6 +65,10 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
     public void ClickOnTrainsTab() {
         trainsTab.click();
+    }
+
+    public void clickOnMetroTab(){
+        metroTab.click();
     }
 
 

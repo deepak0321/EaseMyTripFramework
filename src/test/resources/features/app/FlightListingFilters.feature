@@ -1,5 +1,5 @@
 @Android @Web
-Feature: Validate Flight Listing Functionality
+Feature: Validate Flight Listing Filter Functionality
 
   Background:
     Given user opens application

@@ -57,5 +57,10 @@ public class HomeSteps {
         homePage.clickOnBusTab();
     }
 
+    @When("user clicks on metro tab")
+    public void userClicksOnMetroTab() {
+        homePage.clickOnMetroTab();
+    }
+
 
 }
