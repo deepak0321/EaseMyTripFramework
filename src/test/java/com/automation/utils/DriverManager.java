@@ -14,7 +14,7 @@ public class DriverManager {
 
     public static void createDriver() {
         chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--disable-notifications");
+        //chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-geolocation");
         chromeOptions.addArguments("--disable-popup-blocking");
         chromeOptions.addArguments("--deny-permission-prompts");

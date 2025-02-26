@@ -16,7 +16,7 @@ public abstract class WebBasePage {
 
     WebDriver driver;
     WebDriverWait wait;
-
+    static String queryNumber;
 
     public WebBasePage() {
 

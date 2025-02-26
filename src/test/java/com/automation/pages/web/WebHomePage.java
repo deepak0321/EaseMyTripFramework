@@ -28,6 +28,8 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(xpath = "//a//span[text()='More']")
     WebElement moreTab;
 
+    @FindBy(xpath = "//img[@class='_rohChatAI']")
+    WebElement chatbotIcon;
 
     public void clickOnFlightTab() {
         flightTab.click();
@@ -58,12 +60,16 @@ public class WebHomePage extends WebBasePage implements HomePage {
         trainsTab.click();
     }
 
-    public void clickOnMoreTab(){
+    public void clickOnMoreTab() {
         moreTab.click();
     }
 
-    public void clickOnGiftCard(){
+    public void clickOnGiftCard() {
         giftCardOption.click();
+    }
+
+    public void clickOnChatbotIcon() {
+        chatbotIcon.click();
     }
 
 
