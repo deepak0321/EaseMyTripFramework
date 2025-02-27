@@ -63,4 +63,8 @@ public class HomeSteps {
     }
 
 
+    @When("user clicks on the holidays tab")
+    public void userClicksOnTheHolidaysTab() {
+        homePage.clickOnHolidaysTab();
+    }
 }

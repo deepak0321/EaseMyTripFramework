@@ -17,4 +17,6 @@ public interface HomePage {
     void clickOnFlightTab();
 
     void clickOnGiftCardTab();
+
+    void clickOnHolidaysTab();
 }

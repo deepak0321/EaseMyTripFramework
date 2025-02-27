@@ -31,6 +31,9 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(xpath = "//img[@class='_rohChatAI']")
     WebElement chatbotIcon;
 
+    @FindBy(xpath = "//span[text()='Holidays']")
+    WebElement holidaysTab;
+
     public void clickOnFlightTab() {
         flightTab.click();
     }
@@ -70,6 +73,10 @@ public class WebHomePage extends WebBasePage implements HomePage {
 
     public void clickOnChatbotIcon() {
         chatbotIcon.click();
+    }
+
+    public void clickOnHolidaysTab() {
+        holidaysTab.click();
     }
 
 

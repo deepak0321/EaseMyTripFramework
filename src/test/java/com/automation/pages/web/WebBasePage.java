@@ -17,6 +17,7 @@ public abstract class WebBasePage {
     WebDriver driver;
     WebDriverWait wait;
     static String queryNumber;
+    static String flightOption;
 
     public WebBasePage() {
 
@@ -63,10 +64,6 @@ public abstract class WebBasePage {
 
     public void waitForElementVisible(WebElement ele) {
         wait.until(ExpectedConditions.visibilityOf(ele));
-    }
-
-    public void waitForElementClickable(WebElement ele) {
-        wait.until(ExpectedConditions.elementToBeClickable(ele));
     }
 
     public void setImplicitWait(long secs) {

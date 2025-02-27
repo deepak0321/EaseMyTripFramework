@@ -15,19 +15,19 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     @FindBy(id = "com.android.permissioncontroller:id/permission_deny_button")
     WebElement dontAllowBtn;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Metro\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='Metro']")
     WebElement metroTab;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Trains\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='Trains']")
     WebElement trainsTab;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Gift Card\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='Gift Card']")
     WebElement giftCardsTab;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Bus\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='Bus']")
     WebElement busTab;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Cabs\"]")
+    @FindBy(xpath = "//android.widget.TextView[@text='Cabs']")
     WebElement cabsTab;
 
     @FindBy(xpath = "//android.widget.TextView[@text='Flights']")
@@ -41,6 +41,8 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     public void clickOnGiftCardTab(){
         giftCardsTab.click();
     }
+
+    public void clickOnHolidaysTab() {}
 
     public void clickOnCabsTab() {
         cabsTab.click();
