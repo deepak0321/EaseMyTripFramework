@@ -8,4 +8,7 @@ Feature: Testing POST method to verify data creation
     Then  user performs post method
     Then  verify status code is 201
     Then  verify response body has a field "id"
+    And   verify response matches schema "dataSchema.json"
+    And   verify response body matches request body of create data
+
 
