@@ -34,6 +34,9 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(xpath = "//span[text()='Holidays']")
     WebElement holidaysTab;
 
+    @FindBy(xpath = "//span[text()='Activities']")
+    WebElement activitiesTab;
+
     public void clickOnFlightTab() {
         flightTab.click();
     }
@@ -77,6 +80,10 @@ public class WebHomePage extends WebBasePage implements HomePage {
 
     public void clickOnHolidaysTab() {
         holidaysTab.click();
+    }
+
+    public void clickOnActivitiesTab() {
+        activitiesTab.click();
     }
 
 

@@ -19,4 +19,6 @@ public interface HomePage {
     void clickOnGiftCardTab();
 
     void clickOnHolidaysTab();
+
+    void clickOnActivitiesTab();
 }

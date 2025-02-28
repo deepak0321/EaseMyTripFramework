@@ -1,6 +1,7 @@
 package com.automation.pages.web;
 
 import com.automation.utils.DriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -16,6 +17,7 @@ public abstract class WebBasePage {
 
     WebDriver driver;
     WebDriverWait wait;
+    JavascriptExecutor jsExecutor;
     static String queryNumber;
     static String flightOption;
 
@@ -24,6 +26,11 @@ public abstract class WebBasePage {
         driver = DriverManager.getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         PageFactory.initElements(driver, this);
+        jsExecutor = (JavascriptExecutor) driver;
+    }
+
+    public void javascriptExecutor(WebElement element) {
+        jsExecutor.executeScript("arguments[0].click();", element);
     }
 
     public static String getFormattedDate(String expectedFormat, String date, String currentDateFormat) {
@@ -95,5 +102,13 @@ public abstract class WebBasePage {
         } catch (Exception e) {
             return new String[]{};
         }
+    }
+
+    public double stringPriceValueToDouble(String price) {
+        if (price.isEmpty()) {
+            return 0;
+        }
+        String priceValue = price.replace("₹", "").replace(",", "");
+        return Double.parseDouble(priceValue.trim());
     }
 }

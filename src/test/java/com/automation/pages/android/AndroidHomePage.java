@@ -44,6 +44,10 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
     public void clickOnHolidaysTab() {}
 
+    public void clickOnActivitiesTab() {
+
+    }
+
     public void clickOnCabsTab() {
         cabsTab.click();
     }
