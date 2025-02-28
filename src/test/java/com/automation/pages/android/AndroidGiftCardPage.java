@@ -2,7 +2,6 @@ package com.automation.pages.android;
 
 import com.automation.pages.ui.GiftCardPage;
 import com.automation.utils.ConfigReader;
-import com.google.common.collect.ImmutableMap;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,9 +10,6 @@ public class AndroidGiftCardPage extends AndroidBasePage implements GiftCardPage
 
     @FindBy(xpath = "//android.widget.TextView[@text=\"Check Balance\"]")
     WebElement checkBalance;
-
-    @FindBy(xpath = "//android.widget.Button[@resource-id=\"defaultOpen\"]")
-    WebElement allCategory;
 
     @FindBy(xpath = "//android.widget.Button[@text=\"loved Loved Ones\"]")
     WebElement lovedOnesCategory;
@@ -62,9 +58,6 @@ public class AndroidGiftCardPage extends AndroidBasePage implements GiftCardPage
 
     @FindBy(xpath = "//android.view.View[@resource-id=\"ui-datepicker-div\"]")
     WebElement datePicker;
-
-    @FindBy(xpath = "//android.view.View[@resource-id=\"otr\"]/android.widget.EditText")
-    WebElement otpInput;
 
     @FindBy(xpath = "//android.widget.TextView[@text=\"Verify Now\"]")
     WebElement verifyNowButton;

@@ -1,7 +1,6 @@
 package com.automation.pages.web;
 
 import com.automation.pages.ui.CabSearchPage;
-import com.google.j2objc.annotations.Weak;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -27,8 +26,6 @@ public class WebCabSearchPage extends WebBasePage implements CabSearchPage {
     WebElement sourceNameInput;
 
     String SELECT_LOCATION_XPATH = "//div[@class='auto_sugg_tttl' and contains(text(),'%s')]";
-
-    String SELF_DRIVE_LOCATION_PATH = "//div[@class='auto_sugg_tttl_nw' and contains(text(),'%s')]";
 
     @FindBy(xpath = "//div[@id='destinationName']")
     WebElement destinationName;

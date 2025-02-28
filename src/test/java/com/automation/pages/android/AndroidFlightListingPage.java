@@ -13,9 +13,6 @@ public class AndroidFlightListingPage extends AndroidBasePage implements FlightL
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.easemytrip.android:id/tv_flight_name']")
     List<WebElement> listOfFlightNames;
 
-    @FindBy(xpath = "//div[@class='prc_val airl1-sec']//label")
-    List<WebElement> filterOptionValues;
-
     @FindBy(id = "com.easemytrip.android:id/rl_more_filters")
     WebElement moreFilterBtn;
 

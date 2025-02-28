@@ -17,9 +17,6 @@ public class WebFlightSearchPage extends WebBasePage implements FlightSearchPage
     @FindBy(id = "a_Editbox13_show")
     WebElement toCityInput;
 
-    @FindBy(id = "ddate")
-    WebElement departureDate;
-
     @FindBy(css = ".srchBtnSe")
     WebElement searchBtn;
 

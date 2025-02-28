@@ -9,9 +9,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class WebBusListingPage extends WebBasePage implements BusListingPage {
 
-    @FindBy(xpath = "//input[@id='chkGps']")
-    WebElement gpsEnabledBuses;
-
     @FindBy(xpath = "//div[contains(@class,'mn-title_new')]")
     WebElement busSearchResult;
 

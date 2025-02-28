@@ -29,9 +29,6 @@ public class AndroidFlightSearchPage extends AndroidBasePage implements FlightSe
     @FindBy(id = "com.easemytrip.android:id/button_flight_Search")
     WebElement searchBtn;
 
-    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.easemytrip.android:id/tvMonthName']")
-    WebElement monthAndYear;
-
     @FindBy(id = "com.easemytrip.android:id/search_flight_return_date")
     WebElement returnDateElement;
 
