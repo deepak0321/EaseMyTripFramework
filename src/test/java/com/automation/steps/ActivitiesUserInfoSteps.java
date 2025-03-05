@@ -1,6 +1,9 @@
 package com.automation.steps;
 
+import com.automation.pages.android.AndroidActivitiesUserInfoPage;
+import com.automation.pages.ui.ActivitiesPage;
 import com.automation.pages.web.WebActivitiesUserInfoPage;
+import com.automation.utils.ConfigReader;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -9,7 +12,15 @@ import org.junit.Assert;
 
 public class ActivitiesUserInfoSteps {
 
-    WebActivitiesUserInfoPage activitiesUserInfoPage = new WebActivitiesUserInfoPage();
+    ActivitiesPage activitiesUserInfoPage;
+
+    public ActivitiesUserInfoSteps() {
+        if (ConfigReader.getConfigValue("application.type").equals("Web")) {
+            activitiesUserInfoPage = new WebActivitiesUserInfoPage();
+        } else {
+            activitiesUserInfoPage = new AndroidActivitiesUserInfoPage();
+        }
+    }
 
     @Then("verify user is on user information page")
     public void verifyUserIsOnUserInformationPage() {

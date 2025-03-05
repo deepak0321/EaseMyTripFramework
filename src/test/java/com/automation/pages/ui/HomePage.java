@@ -21,4 +21,31 @@ public interface HomePage {
     void clickOnHolidaysTab();
 
     void clickOnActivitiesTab();
+
+    void clickOnLoginBtn();
+
+    boolean isPopupDisplayed();
+
+    void enterMobile(String mobileNumber);
+
+    void clickOnContinueBtn();
+
+    boolean isOtpGenerated();
+
+    void enterOtp();
+
+    void clickOnOtpOrPasswordLoginBtn();
+
+    boolean isUserLoggedIn();
+
+    void clickOnProfileTab();
+
+    void clickOnLogoutBtn();
+
+    boolean isUserLoggedOut();
+
+    boolean isPasswordOptionDisplayed();
+
+    void enterPassword(String password);
+
 }

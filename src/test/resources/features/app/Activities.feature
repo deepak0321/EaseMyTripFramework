@@ -1,4 +1,4 @@
-@Web
+@Android @Web
 Feature: Validate Activities Functionalities
 
   Background:

@@ -1,4 +1,4 @@
-package com.automation.pages.web;
+package com.automation.pages.android;
 
 import com.automation.pages.ui.ActivitiesPage;
 import com.automation.utils.ConfigReader;
@@ -7,12 +7,12 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class WebActivitiesPage extends WebBasePage implements ActivitiesPage {
+public class AndroidActivitiesPage extends AndroidBasePage implements ActivitiesPage {
 
-    @FindBy(id = "citynamesec")
+    @FindBy(xpath = "//android.view.View[@resource-id='mainDiv']/android.view.View[4]")
     WebElement title;
 
-    @FindBy(xpath = "//div[@class='owl-item active']//a/div[@class='citynm']")
+    @FindBy(xpath = "//android.view.View[@resource-id='mainDiv']/android.view.View[4]//android.widget.TextView[2]")
     List<WebElement> availablePlaces;
 
     public boolean isActivitiesPageDisplayed() {
@@ -28,5 +28,4 @@ public class WebActivitiesPage extends WebBasePage implements ActivitiesPage {
             }
         }
     }
-
 }

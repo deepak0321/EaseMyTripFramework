@@ -1,5 +1,6 @@
 package com.automation.pages.web;
 
+import com.automation.pages.ui.ActivitiesPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class WebActivityDetailPage extends WebBasePage {
+public class WebActivityDetailPage extends WebBasePage implements ActivitiesPage {
 
     @FindBy(xpath = "//h1[@class='f23']")
     WebElement title;

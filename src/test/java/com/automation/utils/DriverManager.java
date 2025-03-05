@@ -32,12 +32,11 @@ public class DriverManager {
             capabilities.setCapability("appActivity", ConfigReader.getConfigValue("app.activity"));
             driver = new AndroidDriver(capabilities);
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     public static WebDriver getDriver() {
         return driver;
     }
 }
+

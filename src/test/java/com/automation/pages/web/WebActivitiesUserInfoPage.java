@@ -1,5 +1,6 @@
 package com.automation.pages.web;
 
+import com.automation.pages.ui.ActivitiesPage;
 import com.automation.utils.ConfigReader;
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.By;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 import java.util.Map;
 
-public class WebActivitiesUserInfoPage extends WebBasePage {
+public class WebActivitiesUserInfoPage extends WebBasePage implements ActivitiesPage {
 
     @FindBy(xpath = "//label[text()='Title']/following-sibling::div[@class='_slcttltle f14']")
     List<WebElement> titleInputs;

@@ -4,6 +4,7 @@ import com.automation.pages.ui.HomePage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebHomePage extends WebBasePage implements HomePage {
 
@@ -36,6 +37,42 @@ public class WebHomePage extends WebBasePage implements HomePage {
 
     @FindBy(xpath = "//span[text()='Activities']")
     WebElement activitiesTab;
+
+    @FindBy(id = "divSignInPnl")
+    WebElement loginBtn;
+
+    @FindBy(id = "shwlogn")
+    WebElement customerLoginBtn;
+
+    @FindBy(id = "txtEmail")
+    WebElement mobileOrEmailInputBar;
+
+    @FindBy(id = "shwotp")
+    WebElement continueBtn;
+
+    @FindBy(xpath = "(//input[@value='Login'])[1]")
+    WebElement otpLoginBtn;
+
+    @FindBy(xpath = "(//input[@value='Login'])[2]")
+    WebElement passwordLoginBtn;
+
+    @FindBy(xpath = "//div[@class='_crosslog _crosslogsuccess']")
+    WebElement closeBtn;
+
+    @FindBy(xpath = "//span[@id='welcome-det-User']")
+    WebElement profileTab;
+
+    @FindBy(xpath = "//a[@class='_drpdubro LogOut']")
+    WebElement logoutBtn;
+
+    @FindBy(id = "shwlgnbx")
+    WebElement passwordOptionBtn;
+
+    @FindBy(xpath = "//input[@id='txtEmail2']")
+    WebElement passwordInputTab;
+
+    boolean pass = false;
+
 
     public void clickOnFlightTab() {
         flightTab.click();
@@ -86,5 +123,66 @@ public class WebHomePage extends WebBasePage implements HomePage {
         activitiesTab.click();
     }
 
+    public void clickOnLoginBtn() {
+        loginBtn.click();
+        customerLoginBtn.click();
+    }
 
+    public boolean isPopupDisplayed() {
+        return mobileOrEmailInputBar.isDisplayed();
+    }
+
+    public void enterMobile(String mobile) {
+        mobileOrEmailInputBar.sendKeys(ConfigReader.getConfigValue(mobile));
+    }
+
+    public void clickOnContinueBtn() {
+        continueBtn.click();
+    }
+
+    public boolean isOtpGenerated() {
+        wait.until(ExpectedConditions.visibilityOf(otpLoginBtn));
+        return otpLoginBtn.isDisplayed();
+    }
+
+    public void enterOtp() {
+        pause(20000);
+    }
+
+    public void clickOnOtpOrPasswordLoginBtn() {
+        if (pass) {
+            passwordLoginBtn.click();
+        } else {
+            otpLoginBtn.click();
+        }
+        closeBtn.click();
+    }
+
+    public boolean isUserLoggedIn() {
+        wait.until(ExpectedConditions.visibilityOf(profileTab));
+        return profileTab.isDisplayed();
+    }
+
+    public void clickOnProfileTab() {
+        profileTab.click();
+    }
+
+    public void clickOnLogoutBtn() {
+        logoutBtn.click();
+    }
+
+    public boolean isUserLoggedOut() {
+        return loginBtn.isDisplayed();
+    }
+
+    public boolean isPasswordOptionDisplayed() {
+        wait.until(ExpectedConditions.visibilityOf(passwordOptionBtn));
+        return passwordOptionBtn.isDisplayed();
+    }
+
+    public void enterPassword(String password) {
+        passwordOptionBtn.click();
+        passwordInputTab.sendKeys(ConfigReader.getConfigValue(password));
+        pass = true;
+    }
 }

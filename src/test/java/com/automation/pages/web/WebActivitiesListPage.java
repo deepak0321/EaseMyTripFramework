@@ -1,5 +1,6 @@
 package com.automation.pages.web;
 
+import com.automation.pages.ui.ActivitiesPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.Set;
 
-public class WebActivitiesListPage extends WebBasePage {
+public class WebActivitiesListPage extends WebBasePage implements ActivitiesPage {
 
     @FindBy(id = "citynamesec")
     WebElement title;

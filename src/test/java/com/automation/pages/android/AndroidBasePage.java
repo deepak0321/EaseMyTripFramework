@@ -4,6 +4,7 @@ import com.automation.utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
@@ -50,6 +51,17 @@ public abstract class AndroidBasePage {
             return expectedFormatter.format(calendar.getTime());
         } catch (Exception e) {
             throw new RuntimeException("Invalid date format " + expectedFormat);
+        }
+    }
+
+    public boolean isPresent(WebElement element) {
+        try {
+            setImplicitWait(5);
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            setImplicitWait(60);
         }
     }
 
