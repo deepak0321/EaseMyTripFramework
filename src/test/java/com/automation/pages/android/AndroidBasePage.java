@@ -4,7 +4,6 @@ import com.automation.utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
@@ -82,7 +81,7 @@ public abstract class AndroidBasePage {
         int height = dimension.getHeight();
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence sequence = new Sequence(finger, 1);
-        sequence.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), width / 2, height / 2));
+        sequence.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), width / 2, height /2));
         sequence.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         sequence.addAction(finger.createPointerMove(Duration.ofSeconds(2),PointerInput.Origin.viewport(),width/2,height/4));
         sequence.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));

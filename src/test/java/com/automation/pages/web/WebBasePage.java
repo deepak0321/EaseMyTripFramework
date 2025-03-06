@@ -73,6 +73,14 @@ public abstract class WebBasePage {
         wait.until(ExpectedConditions.visibilityOf(ele));
     }
 
+    public double stringPriceValueToDouble(String price) {
+        if (price.isEmpty()) {
+            return 0;
+        }
+        String priceValue = price.replace("₹", "").replace(",", "");
+        return Double.parseDouble(priceValue.trim());
+    }
+
     public void setImplicitWait(long secs) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(secs));
     }
@@ -104,11 +112,13 @@ public abstract class WebBasePage {
         }
     }
 
-    public double stringPriceValueToDouble(String price) {
-        if (price.isEmpty()) {
-            return 0;
-        }
-        String priceValue = price.replace("₹", "").replace(",", "");
-        return Double.parseDouble(priceValue.trim());
-    }
+
+
+//    public double stringPriceValueToDouble(String price) {
+//        if (price.isEmpty()) {
+//            return 0;
+//        }
+//        String priceValue = price.replace("₹", "").replace(",", "");
+//        return Double.parseDouble(priceValue.trim());
+//    }
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.Set;
+
 public class WebHomePage extends WebBasePage implements HomePage {
 
     @FindBy(xpath = "//span[text()='Join EMTPro']")
@@ -70,6 +72,9 @@ public class WebHomePage extends WebBasePage implements HomePage {
 
     @FindBy(xpath = "//input[@id='txtEmail2']")
     WebElement passwordInputTab;
+
+    @FindBy(xpath = "//span[text()='Explore Bharat']")
+    WebElement exploreBharatTab;
 
     boolean pass = false;
 
@@ -184,5 +189,20 @@ public class WebHomePage extends WebBasePage implements HomePage {
         passwordOptionBtn.click();
         passwordInputTab.sendKeys(ConfigReader.getConfigValue(password));
         pass = true;
+    }
+
+    public void clickOnExploreBharatTab() {
+        String originalWindow = driver.getWindowHandle();
+
+        exploreBharatTab.click();
+
+        Set<String> allWindows = driver.getWindowHandles();
+
+        for (String windowHandle : allWindows) {
+            if (!windowHandle.equals(originalWindow)) {
+                driver.switchTo().window(windowHandle);
+                break;
+            }
+        }
     }
 }

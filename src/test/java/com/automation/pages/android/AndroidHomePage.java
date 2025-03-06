@@ -84,6 +84,9 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     @FindBy(xpath = "//input[@id='txtEmail2']")
     WebElement passwordInputTab;
 
+    @FindBy(xpath = "//android.widget.TextView[@text='Explore Bharat']")
+    WebElement exploreBharatTab;
+
     boolean pass = false;
 
     public void clickOnFlightTab() {
@@ -193,5 +196,9 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
         denyBtn.click();
         passwordInputTab.sendKeys(ConfigReader.getConfigValue(password));
         pass = true;
+    }
+
+    public void clickOnExploreBharatTab() {
+        exploreBharatTab.click();
     }
 }

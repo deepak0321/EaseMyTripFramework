@@ -18,7 +18,7 @@ public class ExploreBharatSteps {
     ExploreBharatPage exploreBharatPage;
 
     public ExploreBharatSteps() {
-        if (ConfigReader.getConfigValue("application.type").equals("web")) {
+        if (ConfigReader.getConfigValue("application.type").equals("Web")) {
             homePage = new WebHomePage();
             exploreBharatPage = new WebExploreBharatPage();
         }

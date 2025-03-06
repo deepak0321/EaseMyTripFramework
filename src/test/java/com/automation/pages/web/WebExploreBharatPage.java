@@ -27,14 +27,11 @@ public class WebExploreBharatPage extends WebBasePage implements ExploreBharatPa
     List<WebElement> activityDetails;
 
     public boolean isExploreBharatPageDisplayed() {
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", title);
         return title.isDisplayed();
     }
 
     public void selectActivity(String input) {
-
-        JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", title);
-
         outerLoop:
         while (true) {
             for (WebElement activity : activities) {

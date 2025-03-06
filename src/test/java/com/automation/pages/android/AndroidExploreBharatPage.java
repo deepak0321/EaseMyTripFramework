@@ -3,6 +3,7 @@ package com.automation.pages.android;
 import com.automation.pages.ui.ExploreBharatPage;
 import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -33,10 +34,11 @@ public class AndroidExploreBharatPage extends AndroidBasePage implements Explore
     public void selectActivity(String input) {
 
         while(!isPresent(activity)) {
-            scroll();
+            scrollDown();
         }
+        Dimension dimension = driver.manage().window().getSize();
         if (activity.getLocation().getY() > dimension.getHeight()/2) {
-            scroll();
+            scrollDown();
         }
         while (true) {
             if (activity.getText().equalsIgnoreCase(ConfigReader.getConfigValue(input))) {
@@ -56,10 +58,12 @@ public class AndroidExploreBharatPage extends AndroidBasePage implements Explore
 
     public void printDetails() {
         while(true) {
-            scroll();
-            if (isPresent(driver.findElement(By.xpath("//android.view.View[@resource-id='tab1']/android.widget.TextView")))) {
+            scrollDown();
+            if (isPresent(activity)) {
                 System.out.println(activityDetailTitle.getText());
                 activity = driver.findElement(By.xpath("//android.view.View[@resource-id='tab1']/android.widget.TextView"));
+            } else {
+                break;
             }
         }
     }
