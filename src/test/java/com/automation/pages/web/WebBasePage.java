@@ -111,14 +111,4 @@ public abstract class WebBasePage {
             return new String[]{};
         }
     }
-
-
-
-//    public double stringPriceValueToDouble(String price) {
-//        if (price.isEmpty()) {
-//            return 0;
-//        }
-//        String priceValue = price.replace("₹", "").replace(",", "");
-//        return Double.parseDouble(priceValue.trim());
-//    }
 }
